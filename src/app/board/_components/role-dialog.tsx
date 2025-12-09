@@ -121,7 +121,10 @@ export function RoleDialog({
   const setOpen = isControlled ? onOpenChange! : setInternalOpen;
 
   const isEditMode = !!roleData;
-  const { setNodes, nodes, reactFlowInstance, markDirty } = useBoardStore();
+  const nodes = useBoardStore((state) => state.nodes);
+  const setNodes = useBoardStore((state) => state.setNodes);
+  const reactFlowInstance = useBoardStore((state) => state.reactFlowInstance);
+  const markDirty = useBoardStore((state) => state.markDirty);
 
   const form = useForm<RoleForm>({
     resolver: zodResolver(roleSchema),

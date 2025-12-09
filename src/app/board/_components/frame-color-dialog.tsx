@@ -66,7 +66,9 @@ export function FrameColorDialog({
   open,
   onOpenChange,
 }: FrameColorDialogProps) {
-  const { nodes, setNodes, markDirty } = useBoardStore();
+  const nodes = useBoardStore((state) => state.nodes);
+  const setNodes = useBoardStore((state) => state.setNodes);
+  const markDirty = useBoardStore((state) => state.markDirty);
 
   const form = useForm<FrameColorForm>({
     resolver: zodResolver(frameColorSchema),
