@@ -80,7 +80,7 @@ export function BoardCanvasControls({
 
   return (
     <Panel
-      position="bottom"
+      position="bottom-center"
       className="left-1/2 -translate-x-1/2 mb-4"
     >
       <TooltipProvider>
