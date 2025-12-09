@@ -212,10 +212,9 @@ function RoleNodeComponent({ data, selected, id }: NodeProps<RoleNode>) {
         <User className="h-5 w-5" style={{ color }} />
         <h3 className="truncate text-sm font-semibold">{data.title}</h3>
         {data.isKeyRole && (
-          <Star
-            className="h-4 w-4 shrink-0 fill-amber-400 text-amber-400"
-            title="Key Role"
-          />
+          <span title="Key Role">
+            <Star className="h-4 w-4 shrink-0 fill-amber-400 text-amber-400" />
+          </span>
         )}
         {isPending && (
           <div className="ml-auto flex items-center gap-1">
