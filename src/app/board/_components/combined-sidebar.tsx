@@ -457,7 +457,12 @@ export function CombinedSidebar({
                           ) : (
                             roles.map((role) => {
                               const roleData: RoleNodeData & { nodeId: string } = {
-                                ...role,
+                                roleId: role.id,
+                                title: role.title,
+                                purpose: role.purpose,
+                                color: role.color,
+                                assignedUserName: role.assignedUserName,
+                                effortPoints: role.effortPoints,
                                 nodeId: role.nodeId,
                               };
                               return (
