@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useConfirmation } from "@/providers/ConfirmationDialogProvider";
 import { cn } from "@/lib/utils";
 
-import { useBoardStore } from "../store/board-store";
+import { type FrameNode, useBoardStore } from "../store/board-store";
 import { FrameColorDialog } from "./frame-color-dialog";
 
 export type FrameNodeData = {
@@ -22,15 +22,13 @@ export type FrameNodeData = {
   color?: string;
 };
 
-export type FrameNode = NodeProps<FrameNodeData, "frame-node">;
-
 function FrameNodeComponent({
   data,
   selected,
   id,
   width = 300,
   height = 200,
-}: FrameNode) {
+}: NodeProps<FrameNode>) {
   const [isDeleting, setIsDeleting] = useState(false);
   const [isColorDialogOpen, setIsColorDialogOpen] = useState(false);
   const deleteNode = useBoardStore((state) => state.deleteNode);
