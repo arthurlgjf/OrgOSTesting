@@ -20,7 +20,10 @@ export type TeamStoredNodeData = {
   // For role-node
   roleId?: string;
   title?: string;
+  purpose?: string;
   color?: string;
+  assignedUserName?: string;
+  effortPoints?: number | null;
   // For text-node
   text?: string;
   fontSize?: TextNodeFontSize;

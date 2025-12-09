@@ -3,22 +3,22 @@
 import React, { useEffect } from "react";
 
 import { type BoardNode, useBoardStore } from "../store/board-store";
-import { type StoredEdge } from "../types/canvas";
+import { type StoredEdge, type StoredNode } from "../types/canvas";
 import { BoardCanvas } from "./board-canvas";
 import { ShareBoardDialog } from "./share-board-dialog";
 
 // Helper to convert stored nodes to board nodes
 function enrichNodesWithRoleData(
-  storedNodes: any[],
+  storedNodes: StoredNode[],
 ): BoardNode[] {
   return storedNodes.map((node) => ({
     ...node,
     data: node.data || {},
-  }));
+  })) as BoardNode[];
 }
 
 interface BoardCanvasWrapperProps {
-  initialNodes: BoardNode[];
+  initialNodes: StoredNode[];
   initialEdges: StoredEdge[];
   boardId: string;
   shareToken: string | null;
