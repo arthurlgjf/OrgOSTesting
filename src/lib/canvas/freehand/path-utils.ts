@@ -1,6 +1,6 @@
 import getStroke from "perfect-freehand";
 
-import type { Points } from "./types";
+import type { Points } from "../types";
 
 /**
  * Configuration for perfect-freehand stroke rendering.
