@@ -309,12 +309,15 @@ export function BoardSheetSidebar({
             <div className="flex-shrink-0 border-b px-6 py-4">
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold tracking-tight">Roles</h2>
-                <RoleDialog boardId={boardId}>
-                  <Button size="sm">
-                    <Plus className="mr-2 h-4 w-4" />
-                    Add Role
-                  </Button>
-                </RoleDialog>
+                <RoleDialog
+                  boardId={boardId}
+                  trigger={
+                    <Button size="sm">
+                      <Plus className="mr-2 h-4 w-4" />
+                      Add Role
+                    </Button>
+                  }
+                />
               </div>
             </div>
 
