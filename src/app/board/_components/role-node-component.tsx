@@ -25,7 +25,7 @@ import { stripHtml } from "@/lib/html-utils";
 import { cn } from "@/lib/utils";
 import { useConfirmation } from "@/providers/ConfirmationDialogProvider";
 
-import { useBoardStore } from "../store/board-store";
+import { useBoardStore, useBoardStoreApi } from "../store/board-store";
 import { calculateBusFactorRisk } from "../utils/bus-factor";
 import { type RoleNode, type RoleNodeData } from "./role-node";
 
@@ -36,6 +36,7 @@ function RoleNodeComponent({ data, selected, id }: NodeProps<RoleNode>) {
   const nodes = useBoardStore((state) => state.nodes);
   const edges = useBoardStore((state) => state.edges);
   const setEditingNodeId = useBoardStore((state) => state.setEditingNodeId);
+  const storeApi = useBoardStoreApi();
   const { confirm } = useConfirmation();
 
   // Calculate bus factor risk
@@ -52,11 +53,11 @@ function RoleNodeComponent({ data, selected, id }: NodeProps<RoleNode>) {
 
     if (confirmed) {
       setIsDeleting(true);
-      const { deleteNode } = useBoardStore.getState();
+      const { deleteNode } = storeApi.getState();
       deleteNode(id);
       setTimeout(() => setIsDeleting(false), 500);
     }
-  }, [data.title, id, confirm]);
+  }, [data.title, id, confirm, storeApi]);
 
   const handleEdit = useCallback(() => {
     setEditingNodeId(id);
